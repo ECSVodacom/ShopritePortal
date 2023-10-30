@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ShopriteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Shoprite.dbo.ApiURL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ApiURL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="baseURL" Type="nvarchar(max)" />
+          <Property Name="TransactionType" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ClaimBatch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" />
+          <Property Name="DownloadDate" Type="datetime" />
+          <Property Name="OriginalClaimXML" Type="xml" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="Claims" Type="nvarchar(max)" />
+          <Property Name="Sender" Type="nvarchar" MaxLength="20" />
+          <Property Name="Receiver" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="OrderBatch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorID" Type="int" />
+          <Property Name="DownloadDate" Type="datetime" />
+          <Property Name="OriginalOrderXML" Type="xml" />
+          <Property Name="Status" Type="nchar" MaxLength="10" />
+          <Property Name="Orders" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderFile" Type="xml" />
+          <Property Name="Vendor" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Vendors">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VendorName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorUserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorPassWord" Type="nvarchar" MaxLength="50" />
+          <Property Name="Enabled" Type="int" />
+          <Property Name="EnableClaims" Type="int" />
+          <Property Name="LastActionDate" Type="datetime" />
+        </EntityType>
+        <Function Name="GetOrderByNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderNumber" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ShopriteModelStoreContainer">
+          <EntitySet Name="ClaimBatch" EntityType="Self.ClaimBatch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderBatch" EntityType="Self.OrderBatch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ApiURL" EntityType="Self.ApiURL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ApiURL].[id] AS [id], 
+    [ApiURL].[baseURL] AS [baseURL], 
+    [ApiURL].[TransactionType] AS [TransactionType]
+    FROM [dbo].[ApiURL] AS [ApiURL]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ShopriteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ClaimBatch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" />
+          <Property Name="DownloadDate" Type="DateTime" Precision="3" />
+          <Property Name="OriginalClaimXML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Claims" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Receiver" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderBatch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorID" Type="Int32" />
+          <Property Name="DownloadDate" Type="DateTime" Precision="3" />
+          <Property Name="OriginalOrderXML" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Orders" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderFile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vendor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActionDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorPassWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Enabled" Type="Int32" DefaultValue="0" />
+          <Property Name="EnableClaims" Type="Int32" DefaultValue="0" />
+          <Property Name="LastActionDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ApiURL">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="baseURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ShopriteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ClaimBatches" EntityType="Self.ClaimBatch" />
+          <EntitySet Name="OrderBatches" EntityType="Self.OrderBatch" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+          <EntitySet Name="ApiURLs" EntityType="Self.ApiURL" />
+          <FunctionImport Name="GetOrderByNumber" ReturnType="Collection(ShopriteModel.GetOrderByNumber_Result)">
+            <Parameter Name="OrderNumber" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetOrderByNumber_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="orderNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Store" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="OrderStatus" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="OrderProcessedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Batch" Nullable="true" />
+          <Property Type="Int32" Name="BatchID" Nullable="false" />
+          <Property Type="Int32" Name="VendorID" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ShopriteModelStoreContainer" CdmEntityContainer="ShopriteEntities">
+          <EntitySetMapping Name="ClaimBatches">
+            <EntityTypeMapping TypeName="ShopriteModel.ClaimBatch">
+              <MappingFragment StoreEntitySet="ClaimBatch">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="DownloadDate" ColumnName="DownloadDate" />
+                <ScalarProperty Name="OriginalClaimXML" ColumnName="OriginalClaimXML" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Claims" ColumnName="Claims" />
+                <ScalarProperty Name="Sender" ColumnName="Sender" />
+                <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderBatches">
+            <EntityTypeMapping TypeName="ShopriteModel.OrderBatch">
+              <MappingFragment StoreEntitySet="OrderBatch">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="DownloadDate" ColumnName="DownloadDate" />
+                <ScalarProperty Name="OriginalOrderXML" ColumnName="OriginalOrderXML" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Orders" ColumnName="Orders" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ShopriteModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderFile" ColumnName="OrderFile" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="ShopriteModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendors">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorUserName" ColumnName="VendorUserName" />
+                <ScalarProperty Name="VendorPassWord" ColumnName="VendorPassWord" />
+                <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+                <ScalarProperty Name="EnableClaims" ColumnName="EnableClaims" />
+                <ScalarProperty Name="LastActionDate" ColumnName="LastActionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ApiURLs">
+            <EntityTypeMapping TypeName="ShopriteModel.ApiURL">
+              <MappingFragment StoreEntitySet="ApiURL">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="baseURL" ColumnName="baseURL" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetOrderByNumber" FunctionName="ShopriteModel.Store.GetOrderByNumber">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ShopriteModel.GetOrderByNumber_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="orderNumber" ColumnName="orderNumber" />
+                <ScalarProperty Name="Store" ColumnName="Store" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="OrderProcessedDate" ColumnName="OrderProcessedDate" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

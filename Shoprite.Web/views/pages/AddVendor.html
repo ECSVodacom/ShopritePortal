@@ -1,0 +1,66 @@
+﻿<div style="background-color:#ca0000 ;color:white; padding:10px;" >Add Vendor Details</div>
+<br />
+<div>
+    <table>
+        <tr>
+            <td>
+                Vendor
+            </td>
+            <td>
+                <input ng-model="vendor.vendorName" type="text" placeholder="Enter Vendor Name" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Username
+            </td>
+            <td>
+                <input ng-model="vendor.userName" type="text" placeholder="Enter Username" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Password
+            </td>
+            <td>
+                <input ng-model="vendor.passWord" type="text" placeholder="Enter Password" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enable Orders
+            </td>
+            <td>
+                <input ng-model="vendor.enableOrders" type="checkbox" ng-true-value="1" ng-false-value="0" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enable Claims
+            </td>
+            <td>
+                <input ng-model="vendor.enableClaims" type="checkbox" ng-true-value="1" ng-false-value="0" />
+            </td>
+        </tr>
+        <tr>
+            <td> </td>
+        </tr>
+        <tr>
+            <td> </td>
+        </tr>
+        <tr style="align-items:flex-end">
+            <td style="grid-row-align:end">
+                <a style="color:#ca0000;cursor:pointer;padding-right:20px" ng-click="AddVendor(vendor)">Save</a>
+                <a href="" class="saveLink" style="color:#ca0000">Cancel</a>
+            </td>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+    <br />
+
+
+</div>
+

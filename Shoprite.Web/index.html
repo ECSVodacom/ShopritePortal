@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+    <title></title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link href="vendorstyles/Kendo_2_716/kendo.common.min.css" rel="stylesheet" />
+    <link href="vendorstyles/Kendo_2_716/kendo.default.min.css" rel="stylesheet" />
+    <link href="styles/shopritestyles.css" rel="stylesheet" />
+    <link href="Content/ngDialog-theme-default.css" rel="stylesheet" />
+    <link href="Content/ngDialog.css" rel="stylesheet" />
+
+    <script src="vendorscripts/JQuery/jquery-1.9.1.min.js"></script>
+    <script src="vendorscripts/JQuery/jquery-ui.js"></script>
+    <script src="vendorscripts/selectivizr.js"></script>
+    
+
+</head>
+<body ng-app="ngApp">
+
+    <script src="vendorscripts/Angular1_2Js/angular.min.js"></script>
+    <script src="vendorscripts/Angular1_2Js/angular-route.min.js"></script>
+    <script src="vendorscripts/Angular1_2Js/angular-sanitize.min.js"></script>
+    <script src="vendorscripts/Angular1_2Js/angular-animate.min.js"></script>
+    <script src="vendorscripts/Angular1_2Js/angular-cookies.min.js"></script>
+    <script src="vendorscripts/Kendo_2_716/kendo.all.min.js"></script>
+    <script src="vendorscripts/ngDialog.min.js"></script>
+
+
+    <script src="scripts/app.js"></script>
+    <script src="Scripts/services/appsettings.js"></script>
+    <!--<script src="scripts/localjs.min.js"></script>-->
+
+    <script src="scripts/shoprite/controllers/login.js"></script>
+    <script src="scripts/shoprite/controllers/shoprite.js"></script>
+    <script src="scripts/shoprite/services/shopritedata.js"></script>
+    <script src="scripts/shoprite/controllers/vendor.js"></script>
+
+
+
+
+    <div id="rhombusBox" class="rhombus-box">
+        <img src="images/vodacomRhombus.png" />
+    </div>
+        <div class="container">
+            <table id="MainMenu">
+                <tr>
+                    <td><a href="/Vendor">View Vendors</a></td>
+                    <td><a href="/AddVendor">Add Vendor</a></td>
+                    <td><a href="/AddVendor">Find An Order</a></td>
+                </tr>
+            </table>
+        </div>
+   
+    <br />
+    <br />
+
+    <div ng-view="">
+
+    </div>
+    
+
+
+    <!--<a href="views/pages/vendors.html">views/pages/vendors.html</a>-->
+</body>
+</html>

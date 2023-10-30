@@ -1,0 +1,50 @@
+﻿
+<div class="container">
+    <div class="search-help">
+        <div class="fm-data" style="padding:10px;">
+            <input class="searchinput" placeholder="Search For Order" ng-model="orderNumber"  />
+            <button class="searchButton" ng-click="GetOrder(orderNumber); OpenDialog('orders.html')">GO</button>
+        </div>
+    </div>
+    <br />
+    <img class="LoadingIMG" src="../../images/Busy Gif.gif" ng-show="Busy" />
+    <div>time is {{CheckTime}}</div>
+    <a style="cursor:pointer;color:#ca0000" ng-click="OpenDialog('AddVendor.html')">Add New Vendor</a>
+    <br />
+    <br />
+   
+       <table id="VendorGrid">
+        <thead>
+            <tr>
+                <td>Vendor Name</td>
+                <td>Username</td>
+                <td>Password</td>
+                <td>Orders</td>
+                <td>Claims</td>
+                <td></td>
+            </tr>
+
+        </thead>
+
+           <tr ng-repeat="vendor in Vendors track by $index">
+               <td>
+                   <div ng-hide="inputShow && index==$index && hideOnBlur" ng-dblclick="editRecord(vendor.vendorName,$index);hideOnBlur = true">{{vendor.vendorName}}</div>
+                   <input ng-show="inputShow && index==$index && hideOnBlur" ng-blur="ngBlur(vendor); hideOnBlur=false" ng-model="vendor.vendorName">
+               </td>
+               <td>
+                   <div ng-hide="inputShow && index==$index && hideOnBlur" ng-dblclick="editRecord(vendor.userName,$index);hideOnBlur = true">{{vendor.userName}}</div>
+                   <input ng-show="inputShow && index==$index && hideOnBlur" ng-blur="ngBlur(vendor); hideOnBlur=false" ng-model="vendor.userName">
+               </td>
+               <td>
+                   <div ng-hide="inputShow && index==$index && hideOnBlur" ng-dblclick="editRecord(vendor.Password,$index);hideOnBlur = true">{{vendor.Password}}</div>
+                   <input ng-show="inputShow && index==$index && hideOnBlur" ng-blur="ngBlur(vendor); hideOnBlur=false" ng-model="vendor.Password">
+               </td>
+               <td><input ng-model="vendor.enableOrders" type="checkbox" ng-checked="{{vendor.enableOrders}}" id=Chk{{vendor.Id}} ng-change="alert(vendor.Id)" /> </td>
+               <td><input ng-model="vendor.enableClaims" type="checkbox" ng-checked="{{vendor.enableClaims}}" id={{vendor.Id}} ng-change="ChangeClaim(vendor.Id)" /> </td>
+               <td><a style="cursor:pointer;color:#ca0000" id={{vendor.Id}} ng-click="DeleteVendor(vendor.Id)">Delete</a></td>
+           </tr>
+    </table>
+    
+</div>
+<!--ng-checked="{{vendor.enableOrders}}"-->
+<!--td><input ng-model="vendor.enableOrders" type="checkbox" ng-true-value="1" ng-false-value="0" ng-checked="{{vendor.enableOrders}}" id=Chk{{vendor.Id}} ng-change="alert(vendor)" /> </td>-->

@@ -1,0 +1,228 @@
+﻿body {
+}
+
+html {
+    font: 11px 'Segoe UI', Helvetica, 'Droid Sans', Tahoma, Geneva, sans-serif;
+    color: #333333;
+    vertical-align:central;
+}
+
+.LoadingIMG {
+   position: absolute;
+   /*top: 50%;
+   left: 50%;
+   width: 300px;
+   height: 300px;
+   margin-top: -75px; /* Half the height */
+   /*margin-left: -75px;*/ /* Half the width */
+}
+.fm-data {
+    padding: 0 0 20px;
+}
+.searchinput {
+    padding:10px;
+    border-style:none;
+    border-radius : 10px;
+}
+.searchButton {
+    padding:10px;
+    border-style:none;
+    border-radius : 10px;
+    background-color:#3d3d3d;
+    color:white;
+}
+
+
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.search-help {
+    margin-left: 0;
+}
+
+
+.search-help {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #f4f4f4;
+    /*margin: 0 0 35px 40px;*/
+    padding: 0;
+    width: 600px;
+    position: center;
+    min-height: 60px;
+}
+
+.search-help {
+    /*margin: 0 30px 35px;*/
+    /*padding: 10px;*/
+    background-color: #f4f4f4;
+    max-height: 60px;
+}
+
+
+#MainMenu {
+}
+
+    #MainMenu td {
+        background-color: #E31F00;
+        padding: 20px;
+    }
+
+#nav-menu {
+    width: 69%;
+    float: left;
+    margin: 0;
+}
+
+
+#OrderGrid {
+    table-layout:fixed;
+    width:630px;
+}
+
+    #OrderGrid tr{ 
+        background-color:white;
+
+    }
+
+
+#VendorGrid {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    overflow: hidden;
+    border-radius: 10px;
+    -pie-background: linear-gradient(#ece9d8, #E5ECD8);
+    box-shadow: #666 0px 2px 3px;
+    behavior: url(Include/PIE.htc);
+    overflow: hidden;
+    position:center;
+}
+
+    #VendorGrid th {
+        font-size: small;
+        border: 1px solid #cacaca;
+        /*/ background-color: blue;
+        color: blue;
+    }
+
+    #VendorGrid thead {
+        font-size: small;
+        /*border: 1px solid #cacaca;*/
+        /*background-color: #f5f5f5;*/
+    }
+
+    #VendorGrid td {
+        border: thin solid #cacaca;
+        font-size: small;
+        position: relative;
+        text-align: left;
+    }
+
+.container {
+    width: 50%;
+    margin: 0px auto;
+    position:center;
+}
+
+table {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+thead td {
+    font-size: medium;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+td {
+    font-family: Arial;
+    font-size: small;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+    td input[type="checkbox"] {
+        float: left;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+/*a {
+    font-family:Arial;
+    font-size:small ;
+    padding-left :10px;
+    padding-right:10px;
+    padding-top :3px;
+    padding-bottom : 3px;
+}*/
+
+.saveLink a:link {
+    color: blue !important;
+}
+
+.saveLink a:hover {
+    color: blue !important;
+}
+
+.rhombus-box {
+    display: block;
+    height: 600px;
+    left: -500px;
+    opacity: 1;
+    overflow: hidden;
+    position: absolute;
+    top: -11px;
+    width: 973px;
+    z-index: 500;
+}

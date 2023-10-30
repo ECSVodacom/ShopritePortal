@@ -1,0 +1,42 @@
+﻿<div style="background-color:#ca0000 ;color:white; padding:10px;">Order Details for order {{Order.OrderNumber}}</div>
+<br />
+<img src="../../images/Busy Gif.gif" ng-show="Busy"/>
+    <table id="OrderGrid">
+    <tr>
+        <td width="200px">Vendor</td>
+        <td>{{Order.VendorName}}</td>
+    </tr>
+    <tr>
+        <td>Store</td>
+        <td>{{Order.Store}}</td>
+    </tr>
+    <tr>
+        <td>Downloaded</td>
+        <td>{{Order.BatchDate}}</td>
+    </tr>
+    <tr>
+        <td>Order Status</td>
+        <td>{{Order.OrderStatus}}</td>
+    </tr>
+    <tr>
+        <td>Order Action Date</td>
+        <td>{{Order.OrderProcessedDate}}</td>
+    </tr>
+        <tr style="background-color:none !important">
+            <td><b>Included in batch</b></td>
+            
+        </tr>
+        <tr>
+            <td style="word-wrap:break-word;" colspan="2">{{Order.Batch}}</td>
+        </tr>
+</table>
+
+    <br />
+    <br />
+<div>
+
+<a>Reprocess Order</a>
+
+    <br />
+</div>
+<!--max-width:250px;-->

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Shoprite" Class="ShopriteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=41.21.207.231;Initial Catalog=Shoprite;User ID=anco" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ShopriteConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Vendors" Member="Vendors">
+    <Type Name="Vendor">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VendorUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VendorPassWord" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EnableClaims" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastActionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
